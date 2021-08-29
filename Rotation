@@ -1,0 +1,33 @@
+/* https://www.hackerearth.com/practice/algorithms/string-algorithm/basics-of-string-manipulation/practice-problems/algorithm/rotation-1-38ecf5a7/ */
+#include<bits/stdc++.h>
+using namespace std;
+
+int rotation(string s, string t, int l)
+{
+    for (int i = 0; i<l; i++)
+    {
+        if (s.substr(0,s.length())!= t.substr(0,s.length()))
+        {
+            s=s.substr(1,s.length());
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    return l-s.length();
+}
+
+int main()
+{
+
+            string s,t;
+            int l;
+            cin>>l>>s>>t;
+           
+            cout<<rotation(s,t,l); 
+           
+
+return 0;
+}
