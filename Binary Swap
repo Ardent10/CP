@@ -1,0 +1,25 @@
+https://www.hackerearth.com/practice/algorithms/string-algorithm/basics-of-string-manipulation/practice-problems/algorithm/binary-swap-b91d9bef/
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+      
+	  string a,b;
+	  cin>>a>>b;
+      
+       int count=0;
+
+	    for(int i=0;i<b.length();i++){
+		 
+		    if(b[i]!=a[i]) count++;   
+	   }
+       
+	   if(count%2==0)
+	   {
+		   cout<<(count/2);
+	   }
+	   else cout<<"-1";
+
+
+return 0;
+}
