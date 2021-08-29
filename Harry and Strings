@@ -1,0 +1,97 @@
+https://www.hackerearth.com/practice/algorithms/string-algorithm/basics-of-string-manipulation/practice-problems/algorithm/master-cf6dadd7/
+//This is a much complex solution 
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool NoVowel(string s,char vowel[5])
+{   
+	int count =0;
+	for (int i = 0; i <s.length(); i++)
+	{
+		for (int j = 0;j<5 ;j++)
+		{
+			if (s[i]!=vowel[j])
+			{
+				count++;
+			}
+		}
+	}
+		if ((count/5)==s.length())
+		{
+			return true;
+		}
+		else return false;
+} 
+
+int VowelCheck(vector<char>v)
+{
+	if (is_sorted(v.begin(),v.end()))
+	{
+		return 1;
+	}
+	else if(is_sorted(v.crbegin(),v.crend()))
+	{
+		return -1;
+	}
+	else
+	{
+        return 0;
+	}
+}
+
+
+ int main()
+ {
+ 
+         int t,count=0;
+
+		 vector<char>v;
+
+         cin>>t;
+
+		 while(t--)
+		 {
+			string s;
+			cin>>s;
+			
+			char stringVowel[s.length()],vowel[5] = {'a', 'e', 'i', 'o','u'};
+
+			if(NoVowel(s,vowel)==true)
+		    {
+				cout<<"Good"<<endl;
+			}
+            else
+		    {
+				for(int i = 0;i<s.length(); i++)
+				{   
+			   		for (int j = 0; j<5 ; j++)
+			   		{
+						if (s[i]==vowel[j])
+						{
+					    	v.push_back(s[i]); 
+						}
+			   		}
+				}
+			   
+			   int result=VowelCheck(v);
+                
+				if (result==1)
+				{
+					cout<<"Good"<<endl;
+				}
+				else if(result==-1)
+			    {
+					cout<<"Worst"<<endl;
+				}
+				else if(result==0)
+				{
+					cout<<"Bad"<<endl;
+				}
+			
+			   v.erase(v.begin(),v.end());
+	        }
+         }
+
+return 0;
+}
