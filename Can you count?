@@ -1,0 +1,35 @@
+https://www.hackerearth.com/practice/algorithms/string-algorithm/basics-of-string-manipulation/practice-problems/algorithm/can-you-count-11795975/
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+     
+     int t;
+     cin>>t;
+
+     while(t--){
+        string s;
+         cin>>s;
+
+      long long int vowel[26]={0},vowels=0,result=1;
+        
+        for(int i=0;i<s.length();i++){
+
+           if((s[i]=='a'|| s[i]=='e' || s[i]=='i' || s[i]=='o' || s[i]=='u') && vowel[s[i]-'a']==0){
+               vowels++;
+               vowel[s[i]-'a'] = 1;
+           }
+           else if(s[i]=='_'){
+              
+              result*=vowels;
+           }
+        }
+
+         cout<<result<<endl;
+
+     }
+
+
+return 0;
+}
