@@ -1,0 +1,38 @@
+https://www.hackerearth.com/practice/algorithms/string-algorithm/basics-of-string-manipulation/practice-problems/algorithm/largest-balanced-string-bf93ce85/
+#include<bits/stdc++.h>
+using namespace std;
+
+int sequence(string s){
+    int f1=0,f2=0,s1=0,s2=0,t1=0,t2=0;
+
+    for(int i;i<s.length();i++){
+
+       if(s[i]=='(')f1++;
+       else if(s[i]==')')f2++;
+       else if(s[i]=='[')s1++;
+       else if(s[i]==']')s2++;
+       else if(s[i]=='{')t1++;
+       else t2++;
+
+    }
+
+    int result = min(f1,f2)+min(s1,s2)+min(t1,t2);
+    return 2*result;
+}
+
+int main()
+{
+   int t;
+   cin>>t;
+
+   while(t--)
+   {
+     string s;
+	  cin>>s;
+
+     cout<<sequence(s)<<endl;
+     	 
+   }
+
+return 0;
+}
