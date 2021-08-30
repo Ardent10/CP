@@ -1,0 +1,104 @@
+Question: https://www.hackerearth.com/practice/algorithms/string-algorithm/basics-of-string-manipulation/practice-problems/algorithm/decode-1-6eab2976/
+
+Solution 1: time: 3.5 memroy: 584kb
+#include<bits/stdc++.h>
+using namespace std;
+
+string decode(string s)
+{     
+     int l = s.length();
+	   
+	   string result="";
+	   
+	   int flag = (l%2==0)? 1:0;
+
+	   for(int i=0; i<s.length();i+=2)
+	   {
+		 if(flag) // if original length is even 
+		 { 
+			result +=s[i]+result; // adding the first character to the beginning 
+			result += s[i+1];    // then the second element to end
+		 }
+		 else // if original length is odd
+		 {
+			 if(l-i>1) // and the current element iterator is greater than 1
+			 {
+				result+=s[i];  // add the element to end
+				result = s[i+1]+result; // add next element to the beginning
+			 }
+			 else
+			 {
+				result+=s[i];
+			 }
+		 }
+
+	   }
+// Note: if you adding two elements from the parent word then that does not change the characteristic of the length of the word it will either remain odd or it will remain even.
+return result;
+}
+
+int main(){
+
+	int t;
+	cin>>t;
+
+	while(t--)
+	{
+
+	   string s;
+	   cin>>s;        
+       cout<<decode(s)<<endl;
+	}
+
+return 0;
+}
+
+
+
+Solution2: Time: 05sec, Memory: 54kb
+#include<iostream>
+using namespace std;
+
+int main()
+{
+
+	int t;
+	cin>>t;
+
+	while(t--)
+	{
+		string s,result="";
+		cin>>s;
+        
+		int l=s.length();
+		 
+		 if(l&1)  // this l&1 is used to check the odd numbers 
+		 {
+			 for (int i = l-2; i>=0; i-=2)
+			 {
+				 result +=s[i];
+			 }
+			 for (int i = 0; i<l; i+=2)
+			 {
+				 result+=s[i];
+			 }
+		 }
+		 else
+		 {
+			 for (int i =l-2; i>=0; i-=2)
+			 {
+				 result+=s[i];
+			 }
+			 for (int i = 0; i <l; i+=2)
+			 {
+				 result+=s[i];
+			 }
+		 }
+        cout<<result<<endl;
+	}
+
+
+
+
+return 0;
+}
